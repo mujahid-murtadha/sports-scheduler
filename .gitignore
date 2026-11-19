@@ -1,0 +1,17 @@
+# التبعيات (تُثبَّت بـ npm install، لا تُرفع)
+node_modules/
+
+# متغيرات البيئة والأسرار
+.env
+.env.*
+
+# سجلّات ومخرجات مؤقتة
+*.log
+dist/
+build/
+
+# ملفات نظام التشغيل والمحرّرات
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/

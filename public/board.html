@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="ar" dir="rtl" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>جلسات اليوم | نسق</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <script src="i18n.js"></script>
+  <link rel="stylesheet" href="fonts.css">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    /* لوحة العرض العامة: شاشة المدخل، تُقرأ من بعيد */
+    /* خلفية خضراء كأرض الملعب ليلاً، مع أشرطة قصّ العشب */
+    body { min-height: 100vh; color: #fff; display: flex; flex-direction: column;
+      background:
+        repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.022) 0 140px, transparent 140px 280px),
+        radial-gradient(120% 90% at 50% 0%, #15553A 0%, #0B2D1F 55%, #072016 100%); }
+    header { display: flex; align-items: center; gap: 18px; padding: 28px 40px 22px; border-bottom: 1px solid rgba(255, 255, 255, 0.1); }
+    header .mark { width: 46px; height: 46px; }
+    header h1 { font: 800 30px/1.25 var(--brand); flex: 1; }
+    [dir="ltr"] header h1 { font-family: var(--display); font-weight: 700; }
+    header h1 small { display: block; font: 500 16px var(--body); color: #A6C9B5; margin-top: 4px; text-shadow: none; }
+    .clock { text-align: end; }
+    .clock b { display: block; font: 600 54px/1 var(--display); font-variant-numeric: tabular-nums; direction: ltr; }
+    .clock span { font: 500 17px var(--display); color: var(--accent); }
+    .cols { flex: 1; display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
+    .col { padding: 22px 26px 30px; }
+    .col + .col { border-inline-start: 1px solid rgba(255, 255, 255, 0.10); }
+    .col-top { display: flex; align-items: center; gap: 14px; margin-bottom: 18px; }
+    .col-top .court { width: 66px; height: 44px; }
+    .col-top h2 { font-size: 22px; font-weight: 700; }
+    .col-top p { margin: 0; color: #9EC2AE; font-size: 14px; }
+    .slots { list-style: none; margin: 0; padding: 0; }
+    .slots li { display: grid; grid-template-columns: 84px 1fr auto; align-items: center; gap: 14px; padding: 12px 14px; border-radius: 8px; }
+    .slots li + li { margin-top: 4px; }
+    .slots .h { font: 600 22px var(--display); font-variant-numeric: tabular-nums; direction: ltr; text-align: end; }
+    [dir="ltr"] .slots .h { text-align: start; }
+    .slots .t { font: 600 19px/1.45 var(--display); }
+    .slots li.past { opacity: 0.38; }
+    .slots li.now { background: var(--accent); color: var(--nav); }
+    .slots li.next { background: rgba(255, 255, 255, 0.07); }
+    .slots .state { font: 600 14px var(--display); padding: 3px 10px; border-radius: 12px; }
+    .slots li.now .state { background: var(--nav); color: var(--accent); }
+    .slots li.next .state { background: rgba(255, 255, 255, 0.12); color: #D7E8DD; }
+    .slots li.closed .t { color: #B8C9BE; font-weight: 500; font-size: 18px; }
+    .slots li.closed small { display: block; font: 400 14px var(--body); color: #8FB3A0; }
+    .slots li.closed { background: repeating-linear-gradient(135deg, rgba(255,255,255,.05) 0 8px, transparent 8px 16px); }
+    .none { color: #9EC2AE; font-size: 18px; }
+    footer { padding: 12px 40px; font-size: 13.5px; color: #7FA48F; display: flex; justify-content: space-between; }
+    .off { flex: 1; display: grid; place-items: center; text-align: center; padding: 40px; }
+    .off h2 { font: 800 30px var(--brand); }
+    .off p { color: #9EC2AE; font-size: 18px; }
+    @media (max-width: 640px) {
+      header { padding: 18px 18px 14px; } header h1 { font-size: 22px; } .clock b { font-size: 38px; }
+      .col { padding: 18px; } footer { padding: 10px 18px; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <svg class="mark" aria-hidden="true"><use href="icons.svg#brand"/></svg>
+    <h1><span id="org"></span><small data-en="Today's sessions">جلسات اليوم في المرافق</small></h1>
+    <div class="clock"><b id="clock"></b><span id="day"></span></div>
+  </header>
+  <div class="cols" id="cols"></div>
+  <footer><span data-en="Nasaq: sports facility scheduling">نسق: نظام جدولة المرافق الرياضية</span><span id="updated"></span></footer>
+
+  <script>
+    const esc = (s) => String(s ?? "").replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[c]);
+    const hh = (h) => `${String(h).padStart(2, "0")}:00`;
+    const two = (n) => String(n).padStart(2, "0");
+    // يمكن عرض يوم آخر للتجربة: board.html?day=3
+    const forcedDay = new URLSearchParams(location.search).get("day");
+    const today = () => (forcedDay !== null ? Number(forcedDay) : (new Date().getDay() + 1) % 7);
+    let data = null;
+
+    function tick() {
+      const now = new Date();
+      document.getElementById("clock").textContent = `${two(now.getHours())}:${two(now.getMinutes())}`;
+      document.getElementById("day").textContent = `${DAYS[today()]}${tr("، ", ", ")}${new Intl.DateTimeFormat(LOCALE, { day: "numeric", month: "long" }).format(now)}`;
+    }
+
+    function render() {
+      const cols = document.getElementById("cols");
+      if (!data) {
+        cols.outerHTML = `<div class="off" id="cols"><div><h2>${tr("لوحة العرض غير مفعّلة", "The public board is off")}</h2><p>${tr("تُفعَّل من صفحة الإعدادات في نظام نسق.", "Turn it on from the Settings page in Nasaq.")}</p></div></div>`;
+        return;
+      }
+      document.getElementById("org").textContent = data.orgName;
+      const d = today(), hour = new Date().getHours();
+      cols.className = "cols";
+      cols.innerHTML = data.facilities.map((f) => {
+        const rows = [];
+        for (let h = f.open; h < f.close; h++) {
+          const s = data.sessions.find((x) => x.facilityId === f.id && x.day === d && x.hour === h);
+          const c = data.closures.find((x) => x.facilityId === f.id && x.day === d && h >= x.from && h < x.to);
+          if (s) rows.push({ h, html: `<span class="t">${esc(s.team)}</span>`, kind: "" });
+          else if (c && h === c.from) rows.push({ h, html: `<span class="t">${tr("مغلق حتى", "Closed until")} <span class="num">${hh(c.to)}</span><small>${esc(c.reason)}</small></span>`, kind: "closed" });
+        }
+        let nextMarked = false;
+        const items = rows.map((r) => {
+          let cls = r.kind, state = "";
+          if (forcedDay === null || Number(forcedDay) === (new Date().getDay() + 1) % 7) {
+            if (r.h < hour) cls += " past";
+            else if (r.h === hour && !r.kind) { cls += " now"; state = `<span class="state">${tr("الآن", "Now")}</span>`; }
+            else if (r.h > hour && !r.kind && !nextMarked) { cls += " next"; state = `<span class="state">${tr("التالية", "Next")}</span>`; nextMarked = true; }
+          }
+          return `<li class="${cls}"><span class="h">${hh(r.h)}</span>${r.html}${state}</li>`;
+        }).join("");
+        return `<section class="col"><div class="col-top"><svg class="court" viewBox="0 0 120 80" style="color:var(--${f.type})" aria-hidden="true"><use href="icons.svg#court-${f.type}"/></svg>
+          <div><h2>${esc(f.name)}</h2><p><span class="num">${hh(f.open)}–${hh(f.close)}</span></p></div></div>
+          ${items ? `<ul class="slots">${items}</ul>` : `<p class="none">${tr("لا جلسات اليوم.", "No sessions today.")}</p>`}</section>`;
+      }).join("");
+    }
+
+    async function load() {
+      try {
+        const res = await fetch("/api/public/board");
+        data = res.ok ? await res.json() : null;
+        document.getElementById("updated").textContent = `${tr("آخر تحديث", "Updated")} ${two(new Date().getHours())}:${two(new Date().getMinutes())}`;
+      } catch { /* يبقى آخر عرض ناجح عند انقطاع الشبكة */ }
+      render();
+    }
+
+    document.title = tr("جلسات اليوم | نسق", "Today's sessions | Nasaq");
+    tick(); load();
+    setInterval(tick, 15000);
+    setInterval(load, 60000);
+  </script>
+</body>
+</html>

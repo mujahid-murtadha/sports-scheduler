@@ -1,0 +1,1453 @@
+{
+  "perType": [
+    {
+      "type": "football",
+      "capacity": 84,
+      "requests": 52
+    },
+    {
+      "type": "basketball",
+      "capacity": 42,
+      "requests": 39
+    },
+    {
+      "type": "volleyball",
+      "capacity": 28,
+      "requests": 30
+    }
+  ],
+  "engine": {
+    "metrics": {
+      "conflicts": 0,
+      "totalRequests": 121,
+      "scheduled": 119,
+      "fulfilmentRate": 0.9834710743801653,
+      "utilization": 0.7727272727272727,
+      "fairnessIndex": 0.99856,
+      "minTeamRatio": 0.875,
+      "preferenceRate": 0.6611570247933884
+    },
+    "medianMs": 10.34642500000001,
+    "stats": {
+      "searchSteps": 119,
+      "backtracks": 0,
+      "relaxations": 0
+    }
+  },
+  "manual": {
+    "metrics": {
+      "conflicts": 0,
+      "totalRequests": 121,
+      "scheduled": 102,
+      "fulfilmentRate": 0.8429752066115702,
+      "utilization": 0.6623376623376623,
+      "fairnessIndex": 0.954269334838501,
+      "minTeamRatio": 0.4,
+      "preferenceRate": 0.6694214876033058
+    },
+    "medianMs": 0.2014459999999758
+  },
+  "schedule": {
+    "assignments": [
+      {
+        "requestId": "R8",
+        "teamId": "T18",
+        "facilityId": "F4",
+        "day": 0,
+        "hour": 20,
+        "matchedPreference": true,
+        "fixed": false,
+        "reason": "matched"
+      },
+      {
+        "requestId": "R9",
+        "teamId": "T17",
+        "facilityId": "F4",
+        "day": 2,
+        "hour": 19,
+        "matchedPreference": true,
+        "fixed": false,
+        "reason": "matched"
+      },
+      {
+        "requestId": "R22",
+        "teamId": "T19",
+        "facilityId": "F4",
+        "day": 5,
+        "hour": 20,
+        "matchedPreference": true,
+        "fixed": false,
+        "reason": "matched"
+      },
+      {
+        "requestId": "R43",
+        "teamId": "T20",
+        "facilityId": "F4",
+        "day": 0,
+        "hour": 19,
+        "matchedPreference": true,
+        "fixed": false,
+        "reason": "matched"
+      },
+      {
+        "requestId": "R14",
+        "teamId": "T17",
+        "facilityId": "F4",
+        "day": 3,
+        "hour": 19,
+        "matchedPreference": true,
+        "fixed": false,
+        "reason": "matched"
+      },
+      {
+        "requestId": "R24",
+        "teamId": "T18",
+        "facilityId": "F4",
+        "day": 4,
+        "hour": 19,
+        "matchedPreference": true,
+        "fixed": false,
+        "reason": "matched"
+      },
+      {
+        "requestId": "R29",
+        "teamId": "T19",
+        "facilityId": "F4",
+        "day": 1,
+        "hour": 18,
+        "matchedPreference": true,
+        "fixed": false,
+        "reason": "matched"
+      },
+      {
+        "requestId": "R46",
+        "teamId": "T20",
+        "facilityId": "F4",
+        "day": 6,
+        "hour": 19,
+        "matchedPreference": true,
+        "fixed": false,
+        "reason": "matched"
+      },
+      {
+        "requestId": "R27",
+        "teamId": "T17",
+        "facilityId": "F4",
+        "day": 5,
+        "hour": 19,
+        "matchedPreference": false,
+        "fixed": false,
+        "reason": "taken",
+        "reasonArgs": {
+          "teams": [
+            "نادي الهدف الرياضي"
+          ]
+        }
+      },
+      {
+        "requestId": "R32",
+        "teamId": "T18",
+        "facilityId": "F4",
+        "day": 2,
+        "hour": 18,
+        "matchedPreference": true,
+        "fixed": false,
+        "reason": "matched"
+      },
+      {
+        "requestId": "R47",
+        "teamId": "T20",
+        "facilityId": "F4",
+        "day": 1,
+        "hour": 19,
+        "matchedPreference": true,
+        "fixed": false,
+        "reason": "matched"
+      },
+      {
+        "requestId": "R62",
+        "teamId": "T19",
+        "facilityId": "F4",
+        "day": 2,
+        "hour": 20,
+        "matchedPreference": true,
+        "fixed": false,
+        "reason": "matched"
+      },
+      {
+        "requestId": "R36",
+        "teamId": "T18",
+        "facilityId": "F4",
+        "day": 2,
+        "hour": 17,
+        "matchedPreference": false,
+        "fixed": false,
+        "reason": "taken",
+        "reasonArgs": {
+          "teams": [
+            "نادي الهدف الرياضي"
+          ]
+        }
+      },
+      {
+        "requestId": "R37",
+        "teamId": "T17",
+        "facilityId": "F4",
+        "day": 5,
+        "hour": 18,
+        "matchedPreference": false,
+        "fixed": false,
+        "reason": "team_busy"
+      },
+      {
+        "requestId": "R49",
+        "teamId": "T20",
+        "facilityId": "F4",
+        "day": 0,
+        "hour": 18,
+        "matchedPreference": false,
+        "fixed": false,
+        "reason": "taken",
+        "reasonArgs": {
+          "teams": [
+            "كلية الآداب – النيلين"
+          ]
+        }
+      },
+      {
+        "requestId": "R63",
+        "teamId": "T19",
+        "facilityId": "F4",
+        "day": 4,
+        "hour": 17,
+        "matchedPreference": true,
+        "fixed": false,
+        "reason": "matched"
+      },
+      {
+        "requestId": "R40",
+        "teamId": "T18",
+        "facilityId": "F4",
+        "day": 5,
+        "hour": 17,
+        "matchedPreference": false,
+        "fixed": false,
+        "reason": "taken",
+        "reasonArgs": {
+          "teams": [
+            "نادي الهدف الرياضي"
+          ]
+        }
+      },
+      {
+        "requestId": "R41",
+        "teamId": "T17",
+        "facilityId": "F4",
+        "day": 6,
+        "hour": 17,
+        "matchedPreference": false,
+        "fixed": false,
+        "reason": "taken",
+        "reasonArgs": {
+          "teams": [
+            "كلية الآداب – النيلين"
+          ]
+        }
+      },
+      {
+        "requestId": "R79",
+        "teamId": "T20",
+        "facilityId": "F4",
+        "day": 3,
+        "hour": 20,
+        "matchedPreference": true,
+        "fixed": false,
+        "reason": "matched"
+      },
+      {
+        "requestId": "R103",
+        "teamId": "T19",
+        "facilityId": "F4",
+        "day": 6,
+        "hour": 20,
+        "matchedPreference": true,
+        "fixed": false,
+        "reason": "matched"
+      },
+      {
+        "requestId": "R72",
+        "teamId": "T17",
+        "facilityId": "F4",
+        "day": 4,
+        "hour": 18,
+        "matchedPreference": false,
+        "fixed": false,
+        "reason": "team_busy"
+      },
+      {
+        "requestId": "R73",
+        "teamId": "T18",
+        "facilityId": "F4",
+        "day": 4,
+        "hour": 20,
+        "matchedPreference": true,
+        "fixed": false,
+        "reason": "matched"
+      },
+      {
+        "requestId": "R80",
+        "teamId": "T20",
+        "facilityId": "F4",
+        "day": 3,
+        "hour": 18,
+        "matchedPreference": false,
+        "fixed": false,
+        "reason": "taken",
+        "reasonArgs": {
+          "teams": [
+            "كلية الآداب – النيلين"
+          ]
+        }
+      },
+      {
+        "requestId": "R108",
+        "teamId": "T19",
+        "facilityId": "F4",
+        "day": 1,
+        "hour": 20,
+        "matchedPreference": false,
+        "fixed": false,
+        "reason": "taken",
+        "reasonArgs": {
+          "teams": [
+            "كلية الاقتصاد – الخرطوم"
+          ]
+        }
+      },
+      {
+        "requestId": "R94",
+        "teamId": "T17",
+        "facilityId": "F4",
+        "day": 3,
+        "hour": 17,
+        "matchedPreference": true,
+        "fixed": false,
+        "reason": "matched"
+      },
+      {
+        "requestId": "R97",
+        "teamId": "T18",
+        "facilityId": "F4",
+        "day": 1,
+        "hour": 17,
+        "matchedPreference": false,
+        "fixed": false,
+        "reason": "taken",
+        "reasonArgs": {
+          "teams": [
+            "كلية الاقتصاد – الخرطوم"
+          ]
+        }
+      },
+      {
+        "requestId": "R110",
+        "teamId": "T20",
+        "facilityId": "F4",
+        "day": 6,
+        "hour": 18,
+        "matchedPreference": false,
+        "fixed": false,
+        "reason": "taken",
+        "reasonArgs": {
+          "teams": [
+            "نادي الهدف الرياضي"
+          ]
+        }
+      },
+      {
+        "requestId": "R119",
+        "teamId": "T19",
+        "facilityId": "F4",
+        "day": 0,
+        "hour": 17,
+        "matchedPreference": false,
+        "fixed": false,
+        "reason": "taken",
+        "reasonArgs": {
+          "teams": [
+            "كلية الآداب – النيلين"
+          ]
+        }
+      },
+      {
+        "requestId": "R1",
+        "teamId": "T15",
+        "facilityId": "F3",
+        "day": 6,
+        "hour": 19,
+        "matchedPreference": true,
+        "fixed": false,
+        "reason": "matched"
+      },
+      {
+        "requestId": "R2",
+        "teamId": "T12",
+        "facilityId": "F3",
+        "day": 6,
+        "hour": 17,
+        "matchedPreference": true,
+        "fixed": false,
+        "reason": "matched"
+      },
+      {
+        "requestId": "R4",
+        "teamId": "T14",
+        "facilityId": "F3",
+        "day": 4,
+        "hour": 17,
+        "matchedPreference": true,
+        "fixed": false,
+        "reason": "matched"
+      },
+      {
+        "requestId": "R17",
+        "teamId": "T13",
+        "facilityId": "F3",
+        "day": 0,
+        "hour": 17,
+        "matchedPreference": true,
+        "fixed": false,
+        "reason": "matched"
+      },
+      {
+        "requestId": "R21",
+        "teamId": "T11",
+        "facilityId": "F3",
+        "day": 2,
+        "hour": 18,
+        "matchedPreference": true,
+        "fixed": false,
+        "reason": "matched"
+      },
+      {
+        "requestId": "R39",
+        "teamId": "T16",
+        "facilityId": "F3",
+        "day": 0,
+        "hour": 19,
+        "matchedPreference": true,
+        "fixed": false,
+        "reason": "matched"
+      },
+      {
+        "requestId": "R10",
+        "teamId": "T12",
+        "facilityId": "F3",
+        "day": 0,
+        "hour": 20,
+        "matchedPreference": true,
+        "fixed": false,
+        "reason": "matched"
+      },
+      {
+        "requestId": "R11",
+        "teamId": "T15",
+        "facilityId": "F3",
+        "day": 1,
+        "hour": 17,
+        "matchedPreference": true,
+        "fixed": false,
+        "reason": "matched"
+      },
+      {
+        "requestId": "R19",
+        "teamId": "T14",
+        "facilityId": "F3",
+        "day": 6,
+        "hour": 20,
+        "matchedPreference": true,
+        "fixed": false,
+        "reason": "matched"
+      },
+      {
+        "requestId": "R20",
+        "teamId": "T13",
+        "facilityId": "F3",
+        "day": 4,
+        "hour": 18,
+        "matchedPreference": true,
+        "fixed": false,
+        "reason": "matched"
+      },
+      {
+        "requestId": "R53",
+        "teamId": "T16",
+        "facilityId": "F3",
+        "day": 0,
+        "hour": 18,
+        "matchedPreference": true,
+        "fixed": false,
+        "reason": "matched"
+      },
+      {
+        "requestId": "R59",
+        "teamId": "T11",
+        "facilityId": "F3",
+        "day": 4,
+        "hour": 20,
+        "matchedPreference": true,
+        "fixed": false,
+        "reason": "matched"
+      },
+      {
+        "requestId": "R15",
+        "teamId": "T15",
+        "facilityId": "F3",
+        "day": 2,
+        "hour": 17,
+        "matchedPreference": true,
+        "fixed": false,
+        "reason": "matched"
+      },
+      {
+        "requestId": "R25",
+        "teamId": "T14",
+        "facilityId": "F3",
+        "day": 1,
+        "hour": 20,
+        "matchedPreference": true,
+        "fixed": false,
+        "reason": "matched"
+      },
+      {
+        "requestId": "R28",
+        "teamId": "T13",
+        "facilityId": "F3",
+        "day": 4,
+        "hour": 19,
+        "matchedPreference": false,
+        "fixed": false,
+        "reason": "taken",
+        "reasonArgs": {
+          "teams": [
+            "أكاديمية القمة (ناشئون)"
+          ]
+        }
+      },
+      {
+        "requestId": "R34",
+        "teamId": "T12",
+        "facilityId": "F3",
+        "day": 1,
+        "hour": 16,
+        "matchedPreference": false,
+        "fixed": false,
+        "reason": "taken",
+        "reasonArgs": {
+          "teams": [
+            "سيدات جامعة الخرطوم"
+          ]
+        }
+      },
+      {
+        "requestId": "R70",
+        "teamId": "T11",
+        "facilityId": "F3",
+        "day": 3,
+        "hour": 18,
+        "matchedPreference": true,
+        "fixed": false,
+        "reason": "matched"
+      },
+      {
+        "requestId": "R71",
+        "teamId": "T16",
+        "facilityId": "F3",
+        "day": 2,
+        "hour": 16,
+        "matchedPreference": true,
+        "fixed": false,
+        "reason": "matched"
+      },
+      {
+        "requestId": "R23",
+        "teamId": "T15",
+        "facilityId": "F3",
+        "day": 5,
+        "hour": 20,
+        "matchedPreference": true,
+        "fixed": false,
+        "reason": "matched"
+      },
+      {
+        "requestId": "R35",
+        "teamId": "T13",
+        "facilityId": "F3",
+        "day": 1,
+        "hour": 19,
+        "matchedPreference": true,
+        "fixed": false,
+        "reason": "matched"
+      },
+      {
+        "requestId": "R45",
+        "teamId": "T12",
+        "facilityId": "F3",
+        "day": 4,
+        "hour": 21,
+        "matchedPreference": false,
+        "fixed": false,
+        "reason": "taken",
+        "reasonArgs": {
+          "teams": [
+            "كلية القانون – النيلين"
+          ]
+        }
+      },
+      {
+        "requestId": "R67",
+        "teamId": "T14",
+        "facilityId": "F3",
+        "day": 2,
+        "hour": 19,
+        "matchedPreference": false,
+        "fixed": false,
+        "reason": "taken",
+        "reasonArgs": {
+          "teams": [
+            "أكاديمية القمة (ناشئون)"
+          ]
+        }
+      },
+      {
+        "requestId": "R82",
+        "teamId": "T11",
+        "facilityId": "F3",
+        "day": 6,
+        "hour": 21,
+        "matchedPreference": false,
+        "fixed": false,
+        "reason": "taken",
+        "reasonArgs": {
+          "teams": [
+            "كلية الطب – الخرطوم"
+          ]
+        }
+      },
+      {
+        "requestId": "R101",
+        "teamId": "T16",
+        "facilityId": "F3",
+        "day": 4,
+        "hour": 16,
+        "matchedPreference": true,
+        "fixed": false,
+        "reason": "matched"
+      },
+      {
+        "requestId": "R42",
+        "teamId": "T13",
+        "facilityId": "F3",
+        "day": 2,
+        "hour": 20,
+        "matchedPreference": false,
+        "fixed": false,
+        "reason": "taken",
+        "reasonArgs": {
+          "teams": [
+            "سيدات جامعة الخرطوم"
+          ]
+        }
+      },
+      {
+        "requestId": "R50",
+        "teamId": "T15",
+        "facilityId": "F3",
+        "day": 1,
+        "hour": 21,
+        "matchedPreference": true,
+        "fixed": false,
+        "reason": "matched"
+      },
+      {
+        "requestId": "R68",
+        "teamId": "T12",
+        "facilityId": "F3",
+        "day": 2,
+        "hour": 21,
+        "matchedPreference": false,
+        "fixed": false,
+        "reason": "taken",
+        "reasonArgs": {
+          "teams": [
+            "كلية القانون – النيلين"
+          ]
+        }
+      },
+      {
+        "requestId": "R83",
+        "teamId": "T14",
+        "facilityId": "F3",
+        "day": 6,
+        "hour": 18,
+        "matchedPreference": false,
+        "fixed": false,
+        "reason": "taken",
+        "reasonArgs": {
+          "teams": [
+            "سيدات جامعة الخرطوم"
+          ]
+        }
+      },
+      {
+        "requestId": "R91",
+        "teamId": "T11",
+        "facilityId": "F3",
+        "day": 0,
+        "hour": 16,
+        "matchedPreference": false,
+        "fixed": false,
+        "reason": "taken",
+        "reasonArgs": {
+          "teams": [
+            "كلية القانون – النيلين"
+          ]
+        }
+      },
+      {
+        "requestId": "R109",
+        "teamId": "T16",
+        "facilityId": "F3",
+        "day": 3,
+        "hour": 17,
+        "matchedPreference": false,
+        "fixed": false,
+        "reason": "taken",
+        "reasonArgs": {
+          "teams": [
+            "سيدات جامعة الخرطوم"
+          ]
+        }
+      },
+      {
+        "requestId": "R51",
+        "teamId": "T13",
+        "facilityId": "F3",
+        "day": 0,
+        "hour": 21,
+        "matchedPreference": false,
+        "fixed": false,
+        "reason": "taken",
+        "reasonArgs": {
+          "teams": [
+            "مدرسة النهضة الثانوية"
+          ]
+        }
+      },
+      {
+        "requestId": "R81",
+        "teamId": "T12",
+        "facilityId": "F3",
+        "day": 3,
+        "hour": 21,
+        "matchedPreference": false,
+        "fixed": false,
+        "reason": "team_busy"
+      },
+      {
+        "requestId": "R100",
+        "teamId": "T15",
+        "facilityId": "F3",
+        "day": 3,
+        "hour": 19,
+        "matchedPreference": true,
+        "fixed": false,
+        "reason": "matched"
+      },
+      {
+        "requestId": "R66",
+        "teamId": "T13",
+        "facilityId": "F3",
+        "day": 1,
+        "hour": 18,
+        "matchedPreference": false,
+        "fixed": false,
+        "reason": "taken",
+        "reasonArgs": {
+          "teams": [
+            "أكاديمية القمة (ناشئون)"
+          ]
+        }
+      },
+      {
+        "requestId": "R106",
+        "teamId": "T12",
+        "facilityId": "F3",
+        "day": 3,
+        "hour": 20,
+        "matchedPreference": false,
+        "fixed": false,
+        "reason": "taken",
+        "reasonArgs": {
+          "teams": [
+            "مدرسة النهضة الثانوية"
+          ]
+        }
+      },
+      {
+        "requestId": "R69",
+        "teamId": "T13",
+        "facilityId": "F3",
+        "day": 3,
+        "hour": 16,
+        "matchedPreference": false,
+        "fixed": false,
+        "reason": "team_busy"
+      },
+      {
+        "requestId": "R111",
+        "teamId": "T12",
+        "facilityId": "F3",
+        "day": 5,
+        "hour": 18,
+        "matchedPreference": false,
+        "fixed": false,
+        "reason": "taken",
+        "reasonArgs": {
+          "teams": [
+            "مدرسة النهضة الثانوية"
+          ]
+        }
+      },
+      {
+        "requestId": "R74",
+        "teamId": "T13",
+        "facilityId": "F3",
+        "day": 5,
+        "hour": 17,
+        "matchedPreference": false,
+        "fixed": false,
+        "reason": "taken",
+        "reasonArgs": {
+          "teams": [
+            "أكاديمية القمة (ناشئون)"
+          ]
+        }
+      },
+      {
+        "requestId": "R116",
+        "teamId": "T12",
+        "facilityId": "F3",
+        "day": 5,
+        "hour": 19,
+        "matchedPreference": false,
+        "fixed": false,
+        "reason": "taken",
+        "reasonArgs": {
+          "teams": [
+            "كلية الطب – الخرطوم"
+          ]
+        }
+      },
+      {
+        "requestId": "R3",
+        "teamId": "T6",
+        "facilityId": "F1",
+        "day": 1,
+        "hour": 17,
+        "matchedPreference": true,
+        "fixed": false,
+        "reason": "matched"
+      },
+      {
+        "requestId": "R7",
+        "teamId": "T6",
+        "facilityId": "F2",
+        "day": 2,
+        "hour": 21,
+        "matchedPreference": true,
+        "fixed": false,
+        "reason": "matched"
+      },
+      {
+        "requestId": "R30",
+        "teamId": "T6",
+        "facilityId": "F1",
+        "day": 3,
+        "hour": 19,
+        "matchedPreference": true,
+        "fixed": false,
+        "reason": "matched"
+      },
+      {
+        "requestId": "R57",
+        "teamId": "T6",
+        "facilityId": "F2",
+        "day": 6,
+        "hour": 18,
+        "matchedPreference": true,
+        "fixed": false,
+        "reason": "matched"
+      },
+      {
+        "requestId": "R75",
+        "teamId": "T6",
+        "facilityId": "F1",
+        "day": 6,
+        "hour": 19,
+        "matchedPreference": true,
+        "fixed": false,
+        "reason": "matched"
+      },
+      {
+        "requestId": "R90",
+        "teamId": "T6",
+        "facilityId": "F2",
+        "day": 6,
+        "hour": 16,
+        "matchedPreference": true,
+        "fixed": false,
+        "reason": "matched"
+      },
+      {
+        "requestId": "R95",
+        "teamId": "T6",
+        "facilityId": "F1",
+        "day": 4,
+        "hour": 19,
+        "matchedPreference": true,
+        "fixed": false,
+        "reason": "matched"
+      },
+      {
+        "requestId": "R5",
+        "teamId": "T9",
+        "facilityId": "F2",
+        "day": 0,
+        "hour": 19,
+        "matchedPreference": true,
+        "fixed": false,
+        "reason": "matched"
+      },
+      {
+        "requestId": "R18",
+        "teamId": "T9",
+        "facilityId": "F1",
+        "day": 2,
+        "hour": 19,
+        "matchedPreference": true,
+        "fixed": false,
+        "reason": "matched"
+      },
+      {
+        "requestId": "R87",
+        "teamId": "T9",
+        "facilityId": "F2",
+        "day": 4,
+        "hour": 21,
+        "matchedPreference": true,
+        "fixed": false,
+        "reason": "matched"
+      },
+      {
+        "requestId": "R93",
+        "teamId": "T9",
+        "facilityId": "F1",
+        "day": 5,
+        "hour": 17,
+        "matchedPreference": true,
+        "fixed": false,
+        "reason": "matched"
+      },
+      {
+        "requestId": "R6",
+        "teamId": "T1",
+        "facilityId": "F2",
+        "day": 4,
+        "hour": 17,
+        "matchedPreference": true,
+        "fixed": false,
+        "reason": "matched"
+      },
+      {
+        "requestId": "R13",
+        "teamId": "T1",
+        "facilityId": "F1",
+        "day": 0,
+        "hour": 16,
+        "matchedPreference": true,
+        "fixed": false,
+        "reason": "matched"
+      },
+      {
+        "requestId": "R33",
+        "teamId": "T1",
+        "facilityId": "F2",
+        "day": 2,
+        "hour": 19,
+        "matchedPreference": true,
+        "fixed": false,
+        "reason": "matched"
+      },
+      {
+        "requestId": "R54",
+        "teamId": "T1",
+        "facilityId": "F1",
+        "day": 1,
+        "hour": 19,
+        "matchedPreference": true,
+        "fixed": false,
+        "reason": "matched"
+      },
+      {
+        "requestId": "R118",
+        "teamId": "T1",
+        "facilityId": "F2",
+        "day": 5,
+        "hour": 18,
+        "matchedPreference": true,
+        "fixed": false,
+        "reason": "matched"
+      },
+      {
+        "requestId": "R12",
+        "teamId": "T8",
+        "facilityId": "F1",
+        "day": 0,
+        "hour": 19,
+        "matchedPreference": true,
+        "fixed": false,
+        "reason": "matched"
+      },
+      {
+        "requestId": "R16",
+        "teamId": "T7",
+        "facilityId": "F2",
+        "day": 0,
+        "hour": 21,
+        "matchedPreference": true,
+        "fixed": false,
+        "reason": "matched"
+      },
+      {
+        "requestId": "R38",
+        "teamId": "T7",
+        "facilityId": "F1",
+        "day": 6,
+        "hour": 20,
+        "matchedPreference": true,
+        "fixed": false,
+        "reason": "matched"
+      },
+      {
+        "requestId": "R98",
+        "teamId": "T7",
+        "facilityId": "F2",
+        "day": 3,
+        "hour": 16,
+        "matchedPreference": true,
+        "fixed": false,
+        "reason": "matched"
+      },
+      {
+        "requestId": "R99",
+        "teamId": "T7",
+        "facilityId": "F2",
+        "day": 6,
+        "hour": 19,
+        "matchedPreference": true,
+        "fixed": false,
+        "reason": "matched"
+      },
+      {
+        "requestId": "R26",
+        "teamId": "T5",
+        "facilityId": "F1",
+        "day": 0,
+        "hour": 17,
+        "matchedPreference": true,
+        "fixed": false,
+        "reason": "matched"
+      },
+      {
+        "requestId": "R55",
+        "teamId": "T5",
+        "facilityId": "F2",
+        "day": 3,
+        "hour": 19,
+        "matchedPreference": true,
+        "fixed": false,
+        "reason": "matched"
+      },
+      {
+        "requestId": "R56",
+        "teamId": "T5",
+        "facilityId": "F1",
+        "day": 0,
+        "hour": 21,
+        "matchedPreference": true,
+        "fixed": false,
+        "reason": "matched"
+      },
+      {
+        "requestId": "R85",
+        "teamId": "T5",
+        "facilityId": "F1",
+        "day": 5,
+        "hour": 20,
+        "matchedPreference": true,
+        "fixed": false,
+        "reason": "matched"
+      },
+      {
+        "requestId": "R96",
+        "teamId": "T5",
+        "facilityId": "F1",
+        "day": 6,
+        "hour": 18,
+        "matchedPreference": true,
+        "fixed": false,
+        "reason": "matched"
+      },
+      {
+        "requestId": "R115",
+        "teamId": "T5",
+        "facilityId": "F2",
+        "day": 4,
+        "hour": 19,
+        "matchedPreference": true,
+        "fixed": false,
+        "reason": "matched"
+      },
+      {
+        "requestId": "R31",
+        "teamId": "T4",
+        "facilityId": "F2",
+        "day": 6,
+        "hour": 20,
+        "matchedPreference": true,
+        "fixed": false,
+        "reason": "matched"
+      },
+      {
+        "requestId": "R44",
+        "teamId": "T2",
+        "facilityId": "F1",
+        "day": 1,
+        "hour": 18,
+        "matchedPreference": true,
+        "fixed": false,
+        "reason": "matched"
+      },
+      {
+        "requestId": "R61",
+        "teamId": "T2",
+        "facilityId": "F2",
+        "day": 5,
+        "hour": 21,
+        "matchedPreference": true,
+        "fixed": false,
+        "reason": "matched"
+      },
+      {
+        "requestId": "R64",
+        "teamId": "T2",
+        "facilityId": "F1",
+        "day": 6,
+        "hour": 21,
+        "matchedPreference": false,
+        "fixed": false,
+        "reason": "taken",
+        "reasonArgs": {
+          "teams": [
+            "مدرسة الفجر الثانوية",
+            "كلية الحاسوب – النيلين"
+          ]
+        }
+      },
+      {
+        "requestId": "R76",
+        "teamId": "T2",
+        "facilityId": "F1",
+        "day": 3,
+        "hour": 16,
+        "matchedPreference": true,
+        "fixed": false,
+        "reason": "matched"
+      },
+      {
+        "requestId": "R88",
+        "teamId": "T2",
+        "facilityId": "F2",
+        "day": 2,
+        "hour": 20,
+        "matchedPreference": true,
+        "fixed": false,
+        "reason": "matched"
+      },
+      {
+        "requestId": "R89",
+        "teamId": "T2",
+        "facilityId": "F2",
+        "day": 2,
+        "hour": 17,
+        "matchedPreference": true,
+        "fixed": false,
+        "reason": "matched"
+      },
+      {
+        "requestId": "R48",
+        "teamId": "T3",
+        "facilityId": "F2",
+        "day": 1,
+        "hour": 18,
+        "matchedPreference": true,
+        "fixed": false,
+        "reason": "matched"
+      },
+      {
+        "requestId": "R65",
+        "teamId": "T10",
+        "facilityId": "F1",
+        "day": 4,
+        "hour": 18,
+        "matchedPreference": false,
+        "fixed": false,
+        "reason": "taken",
+        "reasonArgs": {
+          "teams": [
+            "كلية الهندسة – الخرطوم",
+            "كلية التجارة – النيلين"
+          ]
+        }
+      },
+      {
+        "requestId": "R78",
+        "teamId": "T10",
+        "facilityId": "F1",
+        "day": 2,
+        "hour": 17,
+        "matchedPreference": true,
+        "fixed": false,
+        "reason": "matched"
+      },
+      {
+        "requestId": "R102",
+        "teamId": "T10",
+        "facilityId": "F2",
+        "day": 6,
+        "hour": 17,
+        "matchedPreference": false,
+        "fixed": false,
+        "reason": "taken",
+        "reasonArgs": {
+          "teams": [
+            "كلية الهندسة – الخرطوم",
+            "كلية التجارة – النيلين"
+          ]
+        }
+      },
+      {
+        "requestId": "R113",
+        "teamId": "T10",
+        "facilityId": "F2",
+        "day": 1,
+        "hour": 17,
+        "matchedPreference": false,
+        "fixed": false,
+        "reason": "taken",
+        "reasonArgs": {
+          "teams": [
+            "أكاديمية الرواد (شباب)",
+            "أكاديمية المستقبل (براعم)"
+          ]
+        }
+      },
+      {
+        "requestId": "R52",
+        "teamId": "T4",
+        "facilityId": "F1",
+        "day": 1,
+        "hour": 21,
+        "matchedPreference": true,
+        "fixed": false,
+        "reason": "matched"
+      },
+      {
+        "requestId": "R84",
+        "teamId": "T4",
+        "facilityId": "F1",
+        "day": 3,
+        "hour": 17,
+        "matchedPreference": true,
+        "fixed": false,
+        "reason": "matched"
+      },
+      {
+        "requestId": "R92",
+        "teamId": "T4",
+        "facilityId": "F2",
+        "day": 6,
+        "hour": 21,
+        "matchedPreference": false,
+        "fixed": false,
+        "reason": "taken",
+        "reasonArgs": {
+          "teams": [
+            "كلية الهندسة – الخرطوم",
+            "مدرسة الفجر الثانوية"
+          ]
+        }
+      },
+      {
+        "requestId": "R104",
+        "teamId": "T4",
+        "facilityId": "F1",
+        "day": 5,
+        "hour": 18,
+        "matchedPreference": true,
+        "fixed": false,
+        "reason": "matched"
+      },
+      {
+        "requestId": "R105",
+        "teamId": "T4",
+        "facilityId": "F2",
+        "day": 0,
+        "hour": 20,
+        "matchedPreference": false,
+        "fixed": false,
+        "reason": "taken",
+        "reasonArgs": {
+          "teams": [
+            "مدرسة الفجر الثانوية",
+            "كلية التجارة – النيلين"
+          ]
+        }
+      },
+      {
+        "requestId": "R117",
+        "teamId": "T4",
+        "facilityId": "F2",
+        "day": 4,
+        "hour": 18,
+        "matchedPreference": true,
+        "fixed": false,
+        "reason": "matched"
+      },
+      {
+        "requestId": "R58",
+        "teamId": "T3",
+        "facilityId": "F1",
+        "day": 0,
+        "hour": 18,
+        "matchedPreference": true,
+        "fixed": false,
+        "reason": "matched"
+      },
+      {
+        "requestId": "R77",
+        "teamId": "T3",
+        "facilityId": "F1",
+        "day": 6,
+        "hour": 17,
+        "matchedPreference": true,
+        "fixed": false,
+        "reason": "matched"
+      },
+      {
+        "requestId": "R112",
+        "teamId": "T3",
+        "facilityId": "F2",
+        "day": 5,
+        "hour": 17,
+        "matchedPreference": false,
+        "fixed": false,
+        "reason": "taken",
+        "reasonArgs": {
+          "teams": [
+            "أكاديمية الرواد (ناشئون)",
+            "كلية الحاسوب – النيلين"
+          ]
+        }
+      },
+      {
+        "requestId": "R114",
+        "teamId": "T3",
+        "facilityId": "F1",
+        "day": 2,
+        "hour": 18,
+        "matchedPreference": false,
+        "fixed": false,
+        "reason": "taken",
+        "reasonArgs": {
+          "teams": [
+            "فريق قدامى اللاعبين",
+            "أكاديمية الرواد (ناشئون)"
+          ]
+        }
+      },
+      {
+        "requestId": "R60",
+        "teamId": "T8",
+        "facilityId": "F2",
+        "day": 5,
+        "hour": 20,
+        "matchedPreference": true,
+        "fixed": false,
+        "reason": "matched"
+      },
+      {
+        "requestId": "R86",
+        "teamId": "T8",
+        "facilityId": "F1",
+        "day": 6,
+        "hour": 16,
+        "matchedPreference": false,
+        "fixed": false,
+        "reason": "taken",
+        "reasonArgs": {
+          "teams": [
+            "مدرسة الفجر الثانوية",
+            "كلية الحاسوب – النيلين"
+          ]
+        }
+      },
+      {
+        "requestId": "R107",
+        "teamId": "T8",
+        "facilityId": "F2",
+        "day": 3,
+        "hour": 17,
+        "matchedPreference": true,
+        "fixed": false,
+        "reason": "matched"
+      }
+    ],
+    "unscheduled": [
+      {
+        "requestId": "R120",
+        "teamId": "T20",
+        "reason": "over_capacity",
+        "reasonArgs": {
+          "requests": 30,
+          "capacity": 28
+        }
+      },
+      {
+        "requestId": "R121",
+        "teamId": "T18",
+        "reason": "over_capacity",
+        "reasonArgs": {
+          "requests": 30,
+          "capacity": 28
+        }
+      }
+    ],
+    "stats": {
+      "searchSteps": 119,
+      "backtracks": 0,
+      "relaxations": 0
+    }
+  }
+}

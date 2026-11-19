@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>نسق | جدولة المرافق الرياضية</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <script>
+    // الوضع الفاتح أو الداكن: اختيار المستخدم المحفوظ، وإلا إعداد الجهاز
+    try { document.documentElement.dataset.theme = localStorage.getItem("theme") || (matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light"); }
+    catch { document.documentElement.dataset.theme = "light"; }
+  </script>
+  <script src="i18n.js"></script>
+  <link rel="stylesheet" href="fonts.css">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="app" id="app">
+  <aside class="sidebar" id="sidebar">
+    <a class="brand" href="#dashboard">
+      <svg aria-hidden="true"><use href="icons.svg#brand"/></svg>
+      <div><b data-en="Nasaq">نسق</b><small data-en="Sports facility scheduling">جدولة المرافق الرياضية</small></div>
+    </a>
+    <nav class="nav" id="nav" aria-label="القائمة الرئيسية" data-en-label="Main menu">
+      <a href="#dashboard"><svg class="i" aria-hidden="true"><use href="icons.svg#i-dashboard"/></svg><span data-en="Dashboard">لوحة المتابعة</span></a>
+      <a href="#schedule"><svg class="i" aria-hidden="true"><use href="icons.svg#i-schedule"/></svg><span data-en="Schedule">الجدول</span></a>
+      <a href="#requests"><svg class="i" aria-hidden="true"><use href="icons.svg#i-requests"/></svg><span data-en="Booking requests">طلبات الحجز</span><span class="count" id="nav-count" hidden></span></a>
+      <a href="#teams"><svg class="i" aria-hidden="true"><use href="icons.svg#i-team"/></svg><span data-en="Teams">الفرق</span></a>
+      <a href="#facilities"><svg class="i" aria-hidden="true"><use href="icons.svg#i-facility"/></svg><span data-en="Facilities">المرافق</span></a>
+      <div class="nav-sep" role="presentation"></div>
+      <a href="#reports"><svg class="i" aria-hidden="true"><use href="icons.svg#i-reports"/></svg><span data-en="Reports">التقارير</span></a>
+      <a href="#activity"><svg class="i" aria-hidden="true"><use href="icons.svg#i-activity"/></svg><span data-en="Activity log">سجل النشاط</span></a>
+      <a href="#settings"><svg class="i" aria-hidden="true"><use href="icons.svg#i-settings"/></svg><span data-en="Settings">الإعدادات</span></a>
+    </nav>
+    <div class="sidebar-foot">
+      <span class="avatar" id="me-initial" aria-hidden="true"></span>
+      <div class="me"><strong id="me-name"></strong><small id="me-login" class="ltr"></small></div>
+      <button class="icon-btn" data-action="logout" aria-label="تسجيل الخروج" title="تسجيل الخروج" data-en-label="Sign out"><svg class="i flip"><use href="icons.svg#i-logout"/></svg></button>
+    </div>
+  </aside>
+
+  <div class="workspace">
+    <header class="topbar">
+      <button class="icon-btn menu-btn" data-action="menu" aria-label="القائمة" data-en-label="Menu"><svg class="i"><use href="icons.svg#i-menu"/></svg></button>
+      <div class="titles"><h1 id="page-title"></h1><p id="page-sub"></p></div>
+      <div class="tools">
+        <button class="tool lang-btn" data-action="lang" lang="en" aria-label="English" title="English" data-en-label="العربية"><span data-en="عربي">English</span></button>
+        <button class="tool" data-action="theme" aria-label="الوضع الفاتح أو الداكن" title="الوضع الفاتح أو الداكن" data-en-label="Light or dark mode"><svg class="i theme-dark"><use href="icons.svg#i-moon"/></svg><svg class="i theme-light"><use href="icons.svg#i-sun"/></svg></button>
+      </div>
+      <button class="btn-run" id="run" data-action="run">
+        <svg class="i" aria-hidden="true"><use href="icons.svg#i-whistle"/></svg><span data-en="Generate schedule">تشغيل الجدولة</span><i class="dot" id="run-dot" hidden></i>
+      </button>
+    </header>
+    <div class="banner" id="stale" role="status" hidden></div>
+    <main id="page" tabindex="-1"></main>
+  </div>
+</div>
+
+<div class="scrim" id="scrim" data-action="close-overlays" hidden></div>
+<aside class="drawer" id="drawer" aria-label="التفاصيل" data-en-label="Details" aria-hidden="true"></aside>
+<dialog id="dialog"></dialog>
+<dialog id="confirm" class="confirm"></dialog>
+<div class="toast" id="toast" role="status" aria-live="polite" hidden></div>
+<script src="app.js"></script>
+</body>
+</html>

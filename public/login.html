@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>تسجيل الدخول | نسق</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <script>
+    try { document.documentElement.dataset.theme = localStorage.getItem("theme") || (matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light"); }
+    catch { document.documentElement.dataset.theme = "light"; }
+  </script>
+  <script src="i18n.js"></script>
+  <link rel="stylesheet" href="fonts.css">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    /* المشهد: ملعب ليلي بمنظور، وأبراج إضاءة في الأركان */
+    body { min-height: 100vh; background: #07101B; color: #fff; overflow-x: hidden; }
+    .stage { position: fixed; inset: 0; overflow: hidden; pointer-events: none;
+      background:
+        radial-gradient(60% 45% at 50% 100%, rgba(31, 122, 71, 0.38), transparent 70%),
+        linear-gradient(180deg, #060D17 0%, #0B1729 46%, #0C2318 100%); }
+    .stage .glow { position: absolute; top: -18vh; width: 70vw; height: 70vh; border-radius: 50%;
+      background: radial-gradient(closest-side, rgba(255, 244, 205, 0.20), rgba(255, 244, 205, 0.05) 55%, transparent); }
+    .stage .glow.a { left: -22vw; } .stage .glow.b { right: -22vw; }
+    .stage .tower { position: absolute; top: 4vh; width: 64px; }
+    .stage .tower svg { display: block; width: 64px; height: 30px; filter: drop-shadow(0 0 10px rgba(255, 240, 190, 0.75)) drop-shadow(0 0 30px rgba(255, 240, 190, 0.45)); }
+    .stage .tower.a { left: 6vw; } .stage .tower.b { right: 6vw; }
+    .stage .beam { position: absolute; top: 7vh; width: 38vw; height: 80vh; opacity: 0.55;
+      background: linear-gradient(180deg, rgba(255, 244, 205, 0.16), rgba(255, 244, 205, 0) 85%); }
+    .stage .beam.a { left: 2vw; clip-path: polygon(0 0, 8% 0, 100% 100%, 45% 100%); }
+    .stage .beam.b { right: 2vw; clip-path: polygon(100% 0, 92% 0, 0 100%, 55% 100%); }
+    .stage .field { position: absolute; left: 50%; bottom: -20vh; width: 150vw; max-width: 2100px; translate: -50% 0;
+      transform: perspective(1200px) rotateX(60deg); transform-origin: 50% 100%; }
+    .stage .field svg { display: block; width: 100%; height: auto; }
+
+    /* البطاقة في بداية اتجاه القراءة (يمين العربية، يسار الإنجليزية) لأنها المهمة الأساسية في الصفحة */
+    .entry { position: relative; z-index: 1; min-height: 100vh; display: grid; grid-template-columns: 440px minmax(0, 1fr); gap: 64px;
+      align-items: center; max-width: 1240px; margin: 0 auto; padding: 48px 56px; }
+    .card-top { display: flex; align-items: center; gap: 12px; margin-bottom: 18px; }
+    .lang { margin-inline-start: auto; height: 30px; padding: 0 12px; border-radius: 15px; border: 1px solid var(--line-strong); background: var(--surface); color: var(--ink-2); font: 600 13px var(--display); }
+    .lang:hover { color: var(--ink); border-color: var(--ink-3); }
+    .pitch-copy .mark { display: flex; align-items: center; gap: 12px; margin-bottom: 40px; }
+    .pitch-copy .mark svg { width: 44px; height: 44px; }
+    .pitch-copy .mark b { font: 800 32px/1 var(--brand); }
+    .pitch-copy .mark span { display: block; font: 500 13.5px var(--body); color: #A7B6C9; margin-top: 6px; }
+    .pitch-copy h1 { font: 800 clamp(40px, 4.8vw, 62px)/1.22 var(--brand); letter-spacing: 0; text-shadow: 0 2px 18px rgba(0, 0, 0, 0.35); }
+    [dir="ltr"] .pitch-copy h1 { font-family: var(--display); font-weight: 700; font-size: clamp(32px, 3.5vw, 48px); line-height: 1.15; }
+    .pitch-copy h1 span { display: block; color: var(--accent); }
+    /* خط الطباشير: منتصف الملعب تحت العنوان */
+    .chalk { display: block; width: 260px; height: 26px; margin: 26px 0 24px; color: rgba(255, 255, 255, 0.6); }
+    .pitch-copy p { margin: 0; max-width: 42ch; font-size: 18.5px; line-height: 1.75; color: #DCE5F0; }
+    [dir="ltr"] .pitch-copy p { font-size: 17.5px; line-height: 1.6; }
+
+    .card { background: var(--surface); color: var(--ink); border-radius: 18px; padding: 34px 34px 28px; box-shadow: 0 30px 80px -20px rgba(0, 0, 0, 0.6); border: 1px solid var(--line); }
+    .card .org { display: flex; align-items: center; gap: 8px; font: 600 13.5px var(--display); color: var(--ink-2); }
+    .card .org i { width: 8px; height: 8px; border-radius: 50%; background: var(--primary); }
+    .card h2 { font: 700 26px/1.3 var(--display); }
+    .card > p { margin: 6px 0 26px; color: var(--ink-2); font-size: 14.5px; }
+    .card form { display: flex; flex-direction: column; gap: 16px; }
+    .card input { height: 46px; font-size: 15.5px; }
+    .pw { position: relative; }
+    .pw input { width: 100%; padding-inline-end: 46px; }
+    .pw button { position: absolute; inset-inline-end: 4px; top: 4px; width: 38px; height: 38px; border: 0; border-radius: 8px; background: transparent; color: var(--ink-3); display: grid; place-items: center; }
+    .pw button:hover, .pw button[aria-pressed="true"] { color: var(--ink); background: var(--surface-3); }
+    .card .btn { height: 48px; font-size: 16px; font-weight: 600; margin-top: 6px; }
+    .card footer { margin-top: 22px; padding-top: 18px; border-top: 1px solid var(--line); font-size: 13.5px; color: var(--ink-2); display: flex; align-items: center; gap: 8px; }
+    .card footer .i { color: var(--ink-3); }
+
+    @media (max-width: 980px) {
+      .entry { grid-template-columns: minmax(0, 1fr); gap: 28px; padding: 32px 20px 40px; align-items: start; }
+      .pitch-copy { order: -1; }
+      .pitch-copy .mark { margin-bottom: 22px; }
+      .pitch-copy h1 { font-size: clamp(28px, 7.6vw, 44px); }
+      .pitch-copy p { display: none; }
+      .chalk { margin: 14px 0 0; }
+      .card { padding: 26px 22px 22px; }
+      .stage .beam, .stage .tower { display: none; }
+      .stage .field { bottom: auto; top: 30vh; width: 260vw; }
+    }
+  </style>
+</head>
+<body>
+  <div class="stage" aria-hidden="true">
+    <div class="glow a"></div><div class="glow b"></div>
+    <div class="beam a"></div><div class="beam b"></div>
+    <div class="tower a"><svg viewBox="0 0 64 30"><rect width="64" height="30" rx="3" fill="#1D2A3B"/><g fill="#FFF7DA"><circle cx="9" cy="9" r="5"/><circle cx="24" cy="9" r="5"/><circle cx="40" cy="9" r="5"/><circle cx="55" cy="9" r="5"/><circle cx="9" cy="21" r="5"/><circle cx="24" cy="21" r="5"/><circle cx="40" cy="21" r="5"/><circle cx="55" cy="21" r="5"/></g></svg></div>
+    <div class="tower b"><svg viewBox="0 0 64 30"><rect width="64" height="30" rx="3" fill="#1D2A3B"/><g fill="#FFF7DA"><circle cx="9" cy="9" r="5"/><circle cx="24" cy="9" r="5"/><circle cx="40" cy="9" r="5"/><circle cx="55" cy="9" r="5"/><circle cx="9" cy="21" r="5"/><circle cx="24" cy="21" r="5"/><circle cx="40" cy="21" r="5"/><circle cx="55" cy="21" r="5"/></g></svg></div>
+    <div class="field">
+      <svg viewBox="0 0 1050 680">
+        <defs>
+          <radialGradient id="lit" cx="50%" cy="40%" r="70%"><stop offset="0" stop-color="#2C8C55"/><stop offset="1" stop-color="#103D26"/></radialGradient>
+          <linearGradient id="far" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#07101B" stop-opacity=".92"/><stop offset=".45" stop-color="#07101B" stop-opacity="0"/></linearGradient>
+        </defs>
+        <rect width="1050" height="680" fill="url(#lit)"/>
+        <g fill="#000" fill-opacity=".10"><rect x="0" width="75" height="680"/><rect x="150" width="75" height="680"/><rect x="300" width="75" height="680"/><rect x="450" width="75" height="680"/><rect x="600" width="75" height="680"/><rect x="750" width="75" height="680"/><rect x="900" width="75" height="680"/></g>
+        <g fill="none" stroke="#fff" stroke-opacity=".8" stroke-width="3">
+          <rect x="45" y="40" width="960" height="600"/><path d="M525 40v600"/><circle cx="525" cy="340" r="88"/>
+          <rect x="45" y="178" width="158" height="324"/><rect x="45" y="262" width="54" height="156"/><path d="M203 286a88 88 0 0 1 0 108"/>
+          <rect x="847" y="178" width="158" height="324"/><rect x="951" y="262" width="54" height="156"/><path d="M847 286a88 88 0 0 0 0 108"/>
+        </g>
+        <g fill="#fff" fill-opacity=".85"><circle cx="525" cy="340" r="5"/><circle cx="150" cy="340" r="4"/><circle cx="900" cy="340" r="4"/></g>
+        <rect width="1050" height="680" fill="url(#far)"/>
+      </svg>
+    </div>
+  </div>
+
+  <div class="entry">
+    <main class="card">
+      <div class="card-top"><div class="org" id="org" hidden><i></i><span></span></div>
+        <button class="lang" type="button" onclick="setLang(LANG === 'en' ? 'ar' : 'en')" data-en="العربية" lang="en">English</button></div>
+      <h2 data-en="Sign in">تسجيل الدخول</h2>
+      <p data-en="Enter your account details to open the admin panel.">أدخل بيانات حسابك للوصول إلى لوحة الإدارة.</p>
+      <form id="login-form">
+        <label class="field"><span data-en="Username">اسم المستخدم</span><input name="username" dir="ltr" autocomplete="username" required autofocus></label>
+        <label class="field"><span data-en="Password">كلمة المرور</span>
+          <span class="pw"><input name="password" id="password" type="password" dir="ltr" autocomplete="current-password" required>
+            <button type="button" id="reveal" aria-label="إظهار كلمة المرور" data-en-label="Show password" aria-pressed="false"><svg class="i" aria-hidden="true"><use href="icons.svg#i-eye"/></svg></button></span>
+        </label>
+        <p id="login-error" class="form-error" role="alert" hidden></p>
+        <button class="btn" data-en="Sign in">دخول</button>
+      </form>
+      <footer id="board-link" hidden><svg class="i" aria-hidden="true"><use href="icons.svg#i-screen"/></svg><span><span data-en="Today's sessions for the public:">جلسات اليوم للجمهور:</span> <a href="board.html" data-en="Public board">لوحة العرض</a></span></footer>
+    </main>
+
+    <section class="pitch-copy">
+      <div class="mark"><svg aria-hidden="true"><use href="icons.svg#brand"/></svg><div><b data-en="Nasaq">نسق</b><span data-en="Sports facility scheduling system">نظام جدولة المرافق الرياضية</span></div></div>
+      <h1><span style="display:inline;color:inherit" data-en="Every pitch at its hour,">كل ملعب في وقته،</span><span data-en="every team in its turn.">وكل فريق في دوره.</span></h1>
+      <svg class="chalk" viewBox="0 0 260 26" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M0 13h105M155 13h105"/><circle cx="130" cy="13" r="11"/><circle cx="130" cy="13" r="2" fill="currentColor"/></svg>
+      <p data-en="Nasaq assigns teams' requests to pitches and halls automatically, without clashes and fairly across teams, and explains every slot it gives.">يوزّع نسق طلبات الفرق على الملاعب والصالات آلياً، دون تعارض وبعدلٍ بين الفرق، ويشرح سبب كل موعد يخصّصه.</p>
+    </section>
+  </div>
+
+  <script>
+    document.title = tr("تسجيل الدخول | نسق", "Sign in | Nasaq");
+    fetch("/api/public/info").then((r) => r.json()).then((info) => {
+      if (info.orgName) { const org = document.getElementById("org"); const name = document.createElement("bdi"); name.textContent = info.orgName; org.querySelector("span").replaceChildren(name); org.hidden = false; }
+      document.getElementById("board-link").hidden = !info.publicBoard;
+    }).catch(() => {});
+
+    document.getElementById("reveal").addEventListener("click", (e) => {
+      const input = document.getElementById("password");
+      const show = input.type === "password";
+      input.type = show ? "text" : "password";
+      e.currentTarget.setAttribute("aria-pressed", String(show));
+      e.currentTarget.setAttribute("aria-label", show ? tr("إخفاء كلمة المرور", "Hide password") : tr("إظهار كلمة المرور", "Show password"));
+    });
+
+    document.getElementById("login-form").addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const err = document.getElementById("login-error");
+      const button = e.target.querySelector(".btn");
+      err.hidden = true;
+      button.disabled = true;
+      try {
+        const res = await fetch("/api/login", { method: "POST", headers: { "Content-Type": "application/json", "X-Lang": LANG }, body: JSON.stringify(Object.fromEntries(new FormData(e.target))) });
+        if (res.ok) return location.replace("/");
+        err.textContent = (await res.json()).error ?? tr("تعذّر تسجيل الدخول", "Couldn't sign in");
+      } catch { err.textContent = tr("تعذّر الاتصال بالخادم", "Couldn't reach the server"); }
+      err.hidden = false;
+      button.disabled = false;
+    });
+  </script>
+</body>
+</html>
