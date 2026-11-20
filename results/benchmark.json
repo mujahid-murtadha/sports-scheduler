@@ -27,7 +27,7 @@
       "minTeamRatio": 0.875,
       "preferenceRate": 0.6611570247933884
     },
-    "medianMs": 10.34642500000001,
+    "medianMs": 7.603874000000019,
     "stats": {
       "searchSteps": 119,
       "backtracks": 0,
@@ -45,7 +45,7 @@
       "minTeamRatio": 0.4,
       "preferenceRate": 0.6694214876033058
     },
-    "medianMs": 0.2014459999999758
+    "medianMs": 0.12756600000000162
   },
   "schedule": {
     "assignments": [

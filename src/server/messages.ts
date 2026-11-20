@@ -79,10 +79,10 @@ export type Lang = "ar" | "en";
 
 export function message(lang: Lang, key: string, params: Record<string, string | number> = {}): string {
   const dict = lang === "en" ? en : ar;
-  const fill = (text: string) => text.replace(/\{(\w+)\}/g, (_, k) => {
+  const fill = (text: string): string => text.replace(/\{(\w+)\}/g, (_, k) => {
     const v = params[k];
     // المعطى قد يكون مفتاحاً آخر (اسم حقل أو سبب رفض) فيُترجم أيضاً
-    return typeof v === "string" && dict[v] ? dict[v] : String(v ?? "");
+    return typeof v === "string" && dict[v] ? fill(dict[v]) : String(v ?? "");
   });
   return fill(dict[key] ?? key);
 }
